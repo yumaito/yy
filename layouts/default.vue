@@ -79,6 +79,10 @@
         <v-icon>mdi-application</v-icon>
       </v-btn>
       <v-spacer />
+      <v-btn text>
+        <v-icon>mdi-logout-variant</v-icon>
+        Logout
+      </v-btn>
     </v-app-bar>
     <v-content>
       <v-container>
@@ -112,8 +116,7 @@ export default {
             { title: 'Bingo', to: { name: 'inspire-bingo' } }
           ]
         }
-      ],
-      title: 'Vuetify.js'
+      ]
     }
   }
 }
