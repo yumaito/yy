@@ -23,6 +23,7 @@
             <v-card-text>
               <v-form>
                 <v-text-field
+                  v-model="name"
                   label="Login"
                   name="login"
                   prepend-icon="mdi-account"
@@ -30,6 +31,7 @@
                 />
                 <v-text-field
                   id="password"
+                  v-model="pass"
                   label="Password"
                   name="password"
                   prepend-icon="mdi-lock"
@@ -52,6 +54,12 @@
 
 <script>
 export default {
-  layout: 'login'
+  layout: 'login',
+  data () {
+    return {
+      name: '',
+      pass: ''
+    }
+  }
 }
 </script>
