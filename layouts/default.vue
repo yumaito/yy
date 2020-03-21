@@ -2,7 +2,7 @@
   <v-app>
     <v-navigation-drawer
       v-model="drawer"
-      :clipped="clipped"
+      clipped
       fixed
       app
     >
@@ -24,7 +24,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      :clipped-left="clipped"
+      clipped-left
       flat
       dark
       fixed
@@ -58,12 +58,11 @@
 export default {
   data () {
     return {
-      clipped: false,
-      drawer: false,
+      drawer: null,
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'ダッシュボード',
           to: '/'
         },
         {
