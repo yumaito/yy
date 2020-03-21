@@ -73,7 +73,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
         icon
-        to="/"
+        :to="{'name': 'index'}"
         nuxt
       >
         <v-icon>mdi-application</v-icon>
@@ -103,14 +103,13 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'ダッシュボード',
-          to: '/'
+          to: { name: 'index' }
         },
         {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
-          to: '/inspire',
           lists: [
-            { title: 'Bingo', to: '/inspire/bingo' }
+            { title: 'Bingo', to: { name: 'inspire-bingo' } }
           ]
         }
       ],
