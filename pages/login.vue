@@ -23,9 +23,9 @@
             <v-card-text>
               <v-form>
                 <v-text-field
-                  v-model="email"
-                  label="Email"
-                  name="email"
+                  v-model="name"
+                  label="Name"
+                  name="name"
                   prepend-icon="mdi-account"
                   type="text"
                 />
@@ -65,7 +65,7 @@ export default {
   },
   data () {
     return {
-      email: '',
+      name: '',
       pass: ''
     }
   },
@@ -75,7 +75,7 @@ export default {
         await this.$auth.loginWith('local',
           {
             data: {
-              email: this.email,
+              name: this.name,
               password: this.pass
             }
           })
