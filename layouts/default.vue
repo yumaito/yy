@@ -82,7 +82,7 @@
       <v-btn
         text
       >
-        {{ user.name }}
+        プロフィール
       </v-btn>
       <v-btn
         text

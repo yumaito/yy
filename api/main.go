@@ -58,6 +58,11 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println(err.Error())
 		return
 	}
+
+	if req.Name != "yumaito" {
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
 	log.Printf("requestt: %+v", req)
 
 	res := &LoginResponse{
