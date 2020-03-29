@@ -37,7 +37,7 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
   ],
   /*
   ** Nuxt.js modules
@@ -47,12 +47,21 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    '@nuxtjs/proxy'
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+  },
+  proxy: {
+    '/api': {
+      target: 'http://localhost:5000',
+      pathRewrite: {
+        '^/api': '/'
+      }
+    }
   },
   /*
   ** vuetify module configuration
