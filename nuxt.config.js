@@ -55,6 +55,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    proxy: true,
     host: 'localhost',
     port: 5000
   },
@@ -76,12 +77,7 @@ export default {
     }
   },
   proxy: {
-    '/api': {
-      target: 'http://localhost:5000',
-      pathRewrite: {
-        '^/api': '/'
-      }
-    }
+    '/api': 'http://localhost:5000'
   },
   /*
   ** vuetify module configuration

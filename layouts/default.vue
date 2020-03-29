@@ -79,7 +79,15 @@
         <v-icon>mdi-application</v-icon>
       </v-btn>
       <v-spacer />
-      <v-btn text>
+      <v-btn
+        text
+      >
+        {{ user.name }}
+      </v-btn>
+      <v-btn
+        text
+        @click="logout"
+      >
         <v-icon>mdi-logout-variant</v-icon>
         Logout
       </v-btn>
@@ -100,6 +108,11 @@
 
 <script>
 export default {
+  middleware ({ store, redirect }) {
+    if (!store.$auth.loggedIn) {
+      redirect('/login')
+    }
+  },
   data () {
     return {
       drawer: null,
@@ -117,6 +130,16 @@ export default {
           ]
         }
       ]
+    }
+  },
+  computed: {
+    user () {
+      return this.$auth.user
+    }
+  },
+  methods: {
+    logout () {
+      this.$auth.logout()
     }
   }
 }

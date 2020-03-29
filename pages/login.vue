@@ -23,9 +23,9 @@
             <v-card-text>
               <v-form>
                 <v-text-field
-                  v-model="name"
-                  label="Login"
-                  name="login"
+                  v-model="email"
+                  label="Email"
+                  name="email"
                   prepend-icon="mdi-account"
                   type="text"
                 />
@@ -41,7 +41,10 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer />
-              <v-btn dark>
+              <v-btn
+                dark
+                @click="login"
+              >
                 Login
               </v-btn>
             </v-card-actions>
@@ -55,10 +58,30 @@
 <script>
 export default {
   layout: 'login',
+  middleware ({ store, redirect }) {
+    if (store.$auth.loggedIn) {
+      redirect('/')
+    }
+  },
   data () {
     return {
-      name: '',
+      email: '',
       pass: ''
+    }
+  },
+  methods: {
+    async login () {
+      try {
+        await this.$auth.loginWith('local',
+          {
+            data: {
+              email: this.email,
+              password: this.password
+            }
+          })
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
