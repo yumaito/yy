@@ -18,7 +18,7 @@ func main() {
 		log.Println(err.Error())
 		return
 	}
-	http.HandleFunc("/api", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/api/info", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, string(j))
 		return
 	})
