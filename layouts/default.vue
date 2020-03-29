@@ -108,11 +108,7 @@
 
 <script>
 export default {
-  middleware ({ store, redirect }) {
-    if (!store.$auth.loggedIn) {
-      redirect('/login')
-    }
-  },
+  middleware: 'auth',
   data () {
     return {
       drawer: null,
