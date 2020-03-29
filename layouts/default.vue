@@ -81,6 +81,8 @@
       <v-spacer />
       <v-btn
         text
+        nuxt
+        :to="{'name': 'profile'}"
       >
         プロフィール
       </v-btn>
@@ -119,6 +121,11 @@ export default {
           to: { name: 'index' }
         },
         {
+          icon: 'mdi-account',
+          title: 'プロフィール',
+          to: { name: 'profile' }
+        },
+        {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
           lists: [
@@ -126,11 +133,6 @@ export default {
           ]
         }
       ]
-    }
-  },
-  computed: {
-    user () {
-      return this.$auth.user
     }
   },
   methods: {
