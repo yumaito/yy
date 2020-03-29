@@ -76,7 +76,7 @@ export default {
           {
             data: {
               email: this.email,
-              password: this.password
+              password: this.pass
             }
           })
       } catch (error) {
