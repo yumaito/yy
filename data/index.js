@@ -15,7 +15,7 @@ const menues = [
   },
   {
     icon: 'mdi-account',
-    title: 'user',
+    title: 'ユーザー',
     to: { name: 'user' }
   }
 ]
