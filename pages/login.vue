@@ -43,7 +43,7 @@
               <v-spacer />
               <v-btn
                 dark
-                @click="login"
+                :to="{'name': 'index'}"
               >
                 Login
               </v-btn>
@@ -58,30 +58,10 @@
 <script>
 export default {
   layout: 'login',
-  middleware ({ store, redirect }) {
-    if (store.$auth.loggedIn) {
-      redirect('/')
-    }
-  },
   data () {
     return {
       email: '',
       pass: ''
-    }
-  },
-  methods: {
-    async login () {
-      try {
-        await this.$auth.loginWith('local',
-          {
-            data: {
-              email: this.email,
-              password: this.password
-            }
-          })
-      } catch (error) {
-        console.log(error)
-      }
     }
   }
 }
