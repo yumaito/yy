@@ -59,26 +59,6 @@ export default {
     host: 'localhost',
     port: 5000
   },
-  auth: {
-    redirect: {
-      login: '/login', // 未ログイン時に認証ルートへアクセスした際のリダイレクトURL
-      logout: '/login', // ログアウト時のリダイレクトURL
-      callback: false,
-      home: '/'
-    },
-    strategies: {
-      local: {
-        endpoints: {
-          login: { url: 'api/login', method: 'post', propertyName: 'token' },
-          user: { url: 'api/me', method: 'get', propertyName: false },
-          logout: false
-        }
-      }
-    }
-  },
-  proxy: {
-    '/api': 'http://localhost:5000'
-  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module

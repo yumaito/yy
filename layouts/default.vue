@@ -81,12 +81,7 @@
       <v-spacer />
       <v-btn
         text
-      >
-        {{ user.name }}
-      </v-btn>
-      <v-btn
-        text
-        @click="logout"
+        :to="{'name': 'login'}"
       >
         <v-icon>mdi-logout-variant</v-icon>
         Logout
@@ -108,11 +103,6 @@
 
 <script>
 export default {
-  middleware ({ store, redirect }) {
-    if (!store.$auth.loggedIn) {
-      redirect('/login')
-    }
-  },
   data () {
     return {
       drawer: null,
@@ -130,16 +120,6 @@ export default {
           ]
         }
       ]
-    }
-  },
-  computed: {
-    user () {
-      return this.$auth.user
-    }
-  },
-  methods: {
-    logout () {
-      this.$auth.logout()
     }
   }
 }
