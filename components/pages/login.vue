@@ -9,13 +9,17 @@
       <v-toolbar-title>{{ title }}</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
-      <v-form>
+      <v-form
+        ref="form"
+        v-model="valid"
+      >
         <v-text-field
           v-model="innerEmail"
           label="Email"
           name="email"
           prepend-icon="mdi-account"
           type="text"
+          :rules="emailRules"
         />
         <v-text-field
           v-model="innerPassword"
@@ -23,6 +27,7 @@
           name="password"
           prepend-icon="mdi-lock"
           type="password"
+          :rules="passwordRules"
         />
       </v-form>
     </v-card-text>
@@ -30,7 +35,7 @@
       <v-spacer />
       <v-btn
         dark
-        @click="onClick"
+        @click="click"
       >
         {{ btnText }}
       </v-btn>
@@ -72,6 +77,18 @@ export default {
       default: 'ログイン'
     }
   },
+  data () {
+    return {
+      valid: true,
+      emailRules: [
+        v => !!v || 'Email を入力してください',
+        v => /.+@.+\..+/.test(v) || 'Email の形式が正しくありません'
+      ],
+      passwordRules: [
+        v => !!v || 'password を入力してください'
+      ]
+    }
+  },
   computed: {
     elevationClass () {
       return [
@@ -100,6 +117,14 @@ export default {
           password: value
         }
         this.$emit('input', f)
+      }
+    }
+  },
+  methods: {
+    click () {
+      this.$refs.form.validate()
+      if (this.valid) {
+        this.onClick()
       }
     }
   }
