@@ -18,7 +18,7 @@
         dense
         nav
       >
-        <template v-for="item in items">
+        <template v-for="item in data.menues">
           <!-- サブメニューありの場合 -->
           <v-list-group
             v-if="item.lists"
@@ -102,24 +102,13 @@
 </template>
 
 <script>
+import data from '@/data'
+
 export default {
   data () {
     return {
       drawer: null,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'ダッシュボード',
-          to: { name: 'index' }
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          lists: [
-            { title: 'Bingo', to: { name: 'inspire-bingo' } }
-          ]
-        }
-      ]
+      data
     }
   }
 }
