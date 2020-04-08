@@ -2,7 +2,7 @@ const menues = [
   {
     icon: 'mdi-apps',
     title: 'ダッシュボード',
-    to: { name: 'index' },
+    to: '/',
     hide: true
   },
   {

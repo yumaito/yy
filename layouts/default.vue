@@ -35,8 +35,8 @@
             <v-list-item
               v-for="list in item.lists"
               :key="list.title"
-              :to="list.to"
               nuxt
+              :to="list.to"
             >
               <v-list-item-title>{{ list.title }}</v-list-item-title>
               <v-list-item-icon>
@@ -48,8 +48,8 @@
           <v-list-item
             v-else
             :key="item.title"
-            :to="item.to"
             nuxt
+            :to="item.to"
           >
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
@@ -73,8 +73,8 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
         icon
-        :to="{'name': 'index'}"
         nuxt
+        to="/"
       >
         <v-icon>mdi-application</v-icon>
       </v-btn>
