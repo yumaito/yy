@@ -3,6 +3,7 @@
     :class="elevationClass"
   >
     <v-toolbar
+      color="primary"
       dark
       flat
     >
@@ -34,7 +35,7 @@
     <v-card-actions>
       <v-spacer />
       <v-btn
-        dark
+        color="primary"
         @click="click"
       >
         {{ btnText }}

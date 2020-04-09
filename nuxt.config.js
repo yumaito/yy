@@ -75,6 +75,12 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
+        },
+        light: {
+          primary: '#1867C0',
+          secondary: '#5CBBF6',
+          tertiary: '#E57373',
+          accent: '#005CAF'
         }
       }
     }

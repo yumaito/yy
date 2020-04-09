@@ -65,6 +65,7 @@
     </v-navigation-drawer>
     <v-app-bar
       clipped-left
+      color="indigo"
       flat
       dark
       fixed
@@ -93,6 +94,7 @@
       </v-container>
     </v-content>
     <v-footer
+      color="indigo"
       fixed
       app
     >
