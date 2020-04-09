@@ -9,7 +9,7 @@
         justify="center"
       >
         <v-col
-          cols="2"
+          cols="12"
           sm="8"
           md="4"
         >
