@@ -64,18 +64,18 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
         to="/"
-        flat
-        text
+        nuxt
+        icon
       >
-        Admin
+        <v-icon>mdi-application</v-icon>
       </v-btn>
       <v-spacer />
       <v-btn
-        text
-        :to="{'name': 'login'}"
+        :to="{'name': 'user'}"
+        nuxt
+        icon
       >
-        <v-icon>mdi-logout-variant</v-icon>
-        Logout
+        <v-icon>mdi-account</v-icon>
       </v-btn>
     </v-app-bar>
     <v-content>
