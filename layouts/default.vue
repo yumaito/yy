@@ -57,6 +57,7 @@
     <v-app-bar
       :clipped-left="clipped"
       :color="color"
+      dense
       dark
       fixed
       app
@@ -72,7 +73,7 @@
       <v-spacer />
 
       <v-menu
-        v-model="user"
+        v-model="userMenuOpen"
         offset-y
       >
         <template v-slot:activator="{ on }">
@@ -87,26 +88,20 @@
         <v-card>
           <v-list dense>
             <v-list-item
+              v-for="item in userMenuList"
+              :key="item.title"
               nuxt
-              :to="{'name': 'user'}"
+              :to="item.to"
             >
               <v-list-item-icon>
-                <v-icon>mdi-account</v-icon>
+                <v-icon>{{ item.icon }}</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>ユーザー名</v-list-item-title>
-                <v-list-item-subtitle>admin</v-list-item-subtitle>
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                <v-list-item-subtitle v-if="item.subTitle">
+                  {{ item.subTitle }}
+                </v-list-item-subtitle>
               </v-list-item-content>
-            </v-list-item>
-
-            <v-list-item
-              nuxt
-              :to="{'name': 'login'}"
-            >
-              <v-list-item-icon>
-                <v-icon>mdi-logout-variant</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>ログアウト</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-card>
@@ -137,7 +132,11 @@ export default {
       drawer: null,
       color: 'primary',
       clipped: this.$vuetify.breakpoint.lgAndUp,
-      user: false,
+      userMenuOpen: false,
+      userMenuList: [
+        { title: 'ユーザー', subTitle: 'admin', to: { name: 'user' }, icon: 'mdi-account' },
+        { title: 'ログアウト', to: { name: 'login' }, icon: 'mdi-logout-variant' }
+      ],
       data
     }
   }
