@@ -72,6 +72,13 @@
       </v-btn>
       <v-spacer />
 
+      <v-btn
+        nuxt
+        :to="{'name': 'help'}"
+        icon
+      >
+        <v-icon>mdi-help-circle</v-icon>
+      </v-btn>
       <v-menu
         v-model="userMenuOpen"
         offset-y
