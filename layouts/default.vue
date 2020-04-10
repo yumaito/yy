@@ -70,13 +70,48 @@
         <v-icon>mdi-application</v-icon>
       </v-btn>
       <v-spacer />
-      <v-btn
-        :to="{'name': 'user'}"
-        nuxt
-        icon
+
+      <v-menu
+        v-model="user"
+        :close-on-content-click="false"
+        offset-y
       >
-        <v-icon>mdi-account</v-icon>
-      </v-btn>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            icon
+            v-on="on"
+          >
+            <v-icon>mdi-account</v-icon>
+          </v-btn>
+        </template>
+
+        <v-card>
+          <v-list dense>
+            <v-list-item
+              nuxt
+              :to="{'name': 'user'}"
+            >
+              <v-list-item-icon>
+                <v-icon>mdi-account</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>ユーザー名</v-list-item-title>
+                <v-list-item-subtitle>admin</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+
+            <v-list-item
+              nuxt
+              :to="{'name': 'login'}"
+            >
+              <v-list-item-icon>
+                <v-icon>mdi-logout-variant</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>ログアウト</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </v-menu>
     </v-app-bar>
     <v-content>
       <v-container>
@@ -103,6 +138,7 @@ export default {
       drawer: null,
       color: 'primary',
       clipped: this.$vuetify.breakpoint.lgAndUp,
+      user: false,
       data
     }
   }
