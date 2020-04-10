@@ -2,21 +2,12 @@
   <v-app>
     <v-navigation-drawer
       v-model="drawer"
-      clipped
+      :clipped="clipped"
       fixed
       app
     >
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="title">
-            メニュー
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-divider />
       <v-list
         dense
-        nav
       >
         <template v-for="item in data.menues">
           <!-- サブメニューありの場合 -->
@@ -64,20 +55,19 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      clipped-left
+      :clipped-left="clipped"
       :color="color"
-      flat
       dark
       fixed
       app
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
-        icon
-        nuxt
         to="/"
+        flat
+        text
       >
-        <v-icon>mdi-application</v-icon>
+        Admin
       </v-btn>
       <v-spacer />
       <v-btn
@@ -112,6 +102,7 @@ export default {
     return {
       drawer: null,
       color: 'primary',
+      clipped: this.$vuetify.breakpoint.lgAndUp,
       data
     }
   }
