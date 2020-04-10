@@ -15,7 +15,7 @@
         >
           <login
             v-model="form"
-            :elevation="24"
+            :elevation="12"
             :on-click="onClick"
           />
         </v-col>

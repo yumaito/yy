@@ -65,7 +65,7 @@
     </v-navigation-drawer>
     <v-app-bar
       clipped-left
-      color="indigo"
+      :color="color"
       flat
       dark
       fixed
@@ -94,7 +94,8 @@
       </v-container>
     </v-content>
     <v-footer
-      color="indigo"
+      :color="color"
+      dark
       fixed
       app
     >
@@ -110,6 +111,7 @@ export default {
   data () {
     return {
       drawer: null,
+      color: 'primary',
       data
     }
   }
